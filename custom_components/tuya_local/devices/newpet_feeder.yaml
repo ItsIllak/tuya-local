@@ -31,7 +31,7 @@ entities:
         unit: portions
         range:
           min: 1
-          max: 20
+          max: 12
   - entity: sensor
     class: enum
     translation_key: status
@@ -77,6 +77,8 @@ entities:
             value: desiccant_exhausted
           - dps_val: 16
             value: battery_low
+          - dps_val: 32
+            value: shutdown
           - dps_val: 64
             value: pet_food_stuck
   - entity: event
@@ -90,11 +92,20 @@ entities:
         mapping:
           - dps_val: null
             value: null
+          - dps_val: 0
+            value: null
           - value: fed
       - id: 14
         type: integer
         name: portions
         optional: true
+  - entity: light
+    translation_key: indicator
+    category: config
+    dps:
+      - id: 17
+        type: boolean
+        name: switch
   - entity: button
     translation_key: factory_reset
     category: config
@@ -104,3 +115,11 @@ entities:
         type: boolean
         name: button
         optional: true
+  - entity: switch
+    name: Sleep mode
+    icon: "mdi:sleep"
+    category: config
+    dps:
+      - id: 101
+        type: boolean
+        name: switch
